@@ -15,7 +15,7 @@ export default class TheHeader extends Vue{
 <style lang="sass" scoped>
 header
   width: 100%
-  height: 10vh
+  min-height: 10vh
   border-bottom: 2px solid #111
   h1
     padding: 0
