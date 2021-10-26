@@ -1,6 +1,7 @@
 <template>
   <div class="fore-cast-container">
     <div class="current-info-wrapper">
+      <h3>Город: {{city.name}}</h3>
       <current-info
           v-bind:main-info="mainInfo"
           v-bind:weather="weather"
@@ -34,7 +35,6 @@ import Prediction from "@/interfaces/prediction.interface";
 })
 export default class TheForecast extends Vue {
   isDataLoaded!: Promise<void>;
-
 
   mainInfo: MainInfoInterface = {
     temp: 0,
@@ -95,7 +95,6 @@ export default class TheForecast extends Vue {
       baseURL: 'https://api.openweathermap.org'
     })
         .then(r => {
-          // console.log(r.data)
           let index = 1
           this.predictionsList = r.data.daily.map((el: any) => {
             const pred: Prediction = {
