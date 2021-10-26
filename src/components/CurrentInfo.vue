@@ -74,6 +74,7 @@ h3
     padding: 1rem
 
   .description-container
+    width: 100%
     display: flex
     flex-direction: column
     justify-content: center

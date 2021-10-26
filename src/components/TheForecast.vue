@@ -9,6 +9,7 @@
     </div>
     <predictions
         v-bind:predictions-list="predictionsList"
+        v-bind:isDataLoaded="isDataLoaded"
     >
     </predictions>
   </div>
@@ -32,6 +33,9 @@ import Prediction from "@/interfaces/prediction.interface";
   }
 })
 export default class TheForecast extends Vue {
+  isDataLoaded!: Promise<void>;
+
+
   mainInfo: MainInfoInterface = {
     temp: 0,
     feels_like: 0,
@@ -53,7 +57,6 @@ export default class TheForecast extends Vue {
     }
   }
   predictionsList: Prediction[] = []
-
 
   mounted(): void {
     axios
@@ -82,8 +85,12 @@ export default class TheForecast extends Vue {
             icon: current.weather[0].icon,
             description: current.weather[0].description,
           }
+          this.loadDaily()
         })
 
+  }
+
+  loadDaily(): void {
     axios.get<any>(`/data/2.5/onecall?lat=${this.city.coord.lat}&lon=${this.city.coord.lon}&exclude=current,minutely,hourly,alerts&appid=8a39d3427f68c1be0169c949d64122bb`, {
       baseURL: 'https://api.openweathermap.org'
     })
@@ -101,8 +108,10 @@ export default class TheForecast extends Vue {
             return pred
           })
 
+          this.isDataLoaded.then()
           console.log(this.predictionsList)
         })
+
   }
 }
 </script>
