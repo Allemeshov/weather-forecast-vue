@@ -38,7 +38,6 @@ import Graph from "@/components/Graph.vue";
     dayString(day: number): string {
       let res: string
       switch (day) {
-
         case 0:
           res = 'Вс'
           break
@@ -153,7 +152,6 @@ export default class Predictions extends Vue {
       return this.getShortDate(p.date)
     })
   }
-
 }
 </script>
 

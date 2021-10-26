@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
-import {Chart, ChartConfiguration, ChartData, registerables, Filler} from "chart.js";
+import {Chart, ChartConfiguration, ChartData, registerables} from "chart.js";
 
 Chart.register(...registerables);
 
@@ -21,13 +21,13 @@ export default class Graph extends Vue {
         labels: this.labels,
         datasets: [
           {
-            label: "Maxs",
+            label: 'Максимальная температура',
             data: this.maxValues,
             fill: 'origin',
             backgroundColor: 'rgba(255, 99, 132, 0.2)'
           },
           {
-            label: "Mins",
+            label: 'Минимальная температура',
             data: this.minValues,
             fill: 'origin',
             backgroundColor: 'rgba(75, 192, 192, 0.2)'

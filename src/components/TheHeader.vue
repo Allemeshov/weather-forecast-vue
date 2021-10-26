@@ -1,6 +1,6 @@
 <template>
 <header>
-  <h1>Welcome to Neverain forecast</h1>
+  <h1>Прогноз погоды</h1>
 </header>
 </template>
 
